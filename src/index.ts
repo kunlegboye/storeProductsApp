@@ -37,13 +37,6 @@ mongoose.connect(process.env.MONGODB_URL as string)
 }
 
 
-// mongoose.connect(process.env.MONGODB_URL as string, {
-//   useNewUrlParser: true,
-//   useUnifiedTopology: true,
-// } as mongoose.ConnectOptions)
-//   .then(() => console.log('Connected to MongoDB'))
-//   .catch(err => console.error(err, 'err'));
-
 app.use(function (err: Error, req: Request, res: Response, next: NextFunction): void {
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
